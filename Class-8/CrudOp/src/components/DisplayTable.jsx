@@ -1,13 +1,11 @@
 
 
-let DisplayTable= ({employees})=>{
-    let handleAdd= (e)=>{
-    
-    }
+let DisplayTable= ({employees,onDelete})=>{
+     
 
     return(
         <>
-          <button className="bg-green-500 rounded-sm" onClick={handleAdd}>+ Add emp</button>
+          <button className=" w-half bg-green-500 rounded-sm"  >+ Add emp</button>
            <table>
             <thead>
               <tr>
@@ -15,6 +13,7 @@ let DisplayTable= ({employees})=>{
                 <th> Name</th>
                 <th> Age</th>
                 <th> Salary</th>
+                <th>Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -24,6 +23,11 @@ let DisplayTable= ({employees})=>{
                     <td> {e.Name}  </td>
                     <td> {e.age}  </td>
                     <td> {e.salary}  </td>
+                    <td>
+                        <button type="button" onClick={()=>{onDelete(e.id)}}>delete</button>
+                        <button type='button' > Read</button>
+                        <button type="button">Update </button>
+                    </td>
                     
                   </tr>
 

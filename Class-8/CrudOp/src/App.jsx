@@ -16,6 +16,10 @@ function App() {
       setEmployee((previous)=>[...previous,newEmployee]);
   }
 
+   function deleteEmployee(id){
+    setEmployee((previous)=> previous.filter((emp)=> emp.id !== id));
+   }
+
   return (
     <>
         <div>
@@ -23,7 +27,7 @@ function App() {
           <h1 className='text-5xl text-blue-500'> Class 8</h1>
            
            
-           <DisplayTable employees={employee}/>
+           <DisplayTable employees={employee} onDelete={deleteEmployee}/>
           </div>
           <Empform onAdd={addNewEmployee} />
     </>

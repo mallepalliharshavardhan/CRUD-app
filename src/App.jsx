@@ -4,7 +4,6 @@ import Home from './Pages/Home'
 import Create from './Pages/Create'
 import Read from './Pages/Read'
 import Update from './Pages/Update'
-import axios from 'axios'
 import './App.css'
 
 function App() {

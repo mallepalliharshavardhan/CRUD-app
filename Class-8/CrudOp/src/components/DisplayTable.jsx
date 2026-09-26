@@ -6,14 +6,15 @@ let DisplayTable= ({employees,onDelete,onEdit})=>{
     return(
         <>
           <button className=" w-half bg-green-500 rounded-sm"  >+ Add emp</button>
+          <h1 className="text-xl text-blue-600">Employee Table</h1>
            <table>
             <thead>
               <tr>
-                <th> ID</th>
-                <th> Name</th>
-                <th> Age</th>
-                <th> Salary</th>
-                <th>Actions</th>
+                <th > ID</th>
+                <th   > Name</th>
+                <th   > Age</th>
+                <th   > Salary</th>
+                <th   >Actions</th>
               </tr>
             </thead>
             <tbody>

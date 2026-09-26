@@ -7,6 +7,7 @@ function App() {
 
   let [selectEmployee,setSelectEmployee] = useState(null);
   let [addEmp,setAddEmp] = useState();
+  let [show,setShow] = useState(false)
   let[employee,setEmployee]= useState([
     {id:1,Name:'Harsha' ,age:22 ,salary: 100000},
     {id:2,Name: 'vaibhavi',age:21 ,salary: 100000},
@@ -15,7 +16,13 @@ function App() {
   ]);
   
   function addNewEmployee(newEmployee){
-      setEmployee((previous)=>[...previous,newEmployee]);
+     if(selectEmployee){
+      setEmployee((previous)=> previous.map((emp)=> emp.id === selectEmployee.id ? {...emp,...newEmployee,id: emp.id}: emp));
+      setSelectEmployee(null);
+     }else{
+         setEmployee((previous) => [...previous,newEmployee]);
+     }
+     handleclose();
   }
 
    function deleteEmployee(id){
@@ -23,13 +30,14 @@ function App() {
    }
     function editEmployee(emp){
       setSelectEmployee(emp);
+      setShow(true);
     }
 
   return (
     <>
         <div>
             
-          <h1 className='text-5xl text-blue-500'> Class 8</h1>
+          
            
            
            <DisplayTable  employees={employee} onDelete={deleteEmployee} onEdit={editEmployee}/>

@@ -1,11 +1,11 @@
 
 
-let DisplayTable= ({employees,onDelete,onEdit})=>{
+let DisplayTable= ({employees,onDelete,onEdit,showfrom})=>{
      
 
     return(
         <>
-          <button className=" w-half bg-green-500 rounded-sm"  >+ Add emp</button>
+          <button className=" w-half bg-green-500 rounded-sm" onClick={showfrom} >+ Add emp</button>
           <h1 className="text-xl text-blue-600">Employee Table</h1>
            <table>
             <thead>

@@ -1,6 +1,6 @@
 
 
-let DisplayTable= ({employees,onDelete})=>{
+let DisplayTable= ({employees,onDelete,onEdit})=>{
      
 
     return(
@@ -24,9 +24,9 @@ let DisplayTable= ({employees,onDelete})=>{
                     <td> {e.age}  </td>
                     <td> {e.salary}  </td>
                     <td>
-                        <button type="button" onClick={()=>{onDelete(e.id)}}>delete</button>
-                        <button type='button' > Read</button>
-                        <button type="button">Update </button>
+                        <button className="bg-red-400 rounded-sm m-1" type="button" onClick={()=>{onDelete(e.id)}}>delete</button>
+                        <button className="bg-blue-400 rounded-sm m-1" type='button' onClick={()=>{onEdit(e)}}> Edit</button>
+                         
                     </td>
                     
                   </tr>

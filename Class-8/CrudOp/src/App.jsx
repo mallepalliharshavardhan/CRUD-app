@@ -4,6 +4,8 @@ import DisplayTable from './components/DisplayTable';
 import Empform from './components/EmpForm';
 
 function App() {
+
+  let [selectEmployee,setSelectEmployee] = useState(null);
   let [addEmp,setAddEmp] = useState();
   let[employee,setEmployee]= useState([
     {id:1,Name:'Harsha' ,age:22 ,salary: 100000},
@@ -19,6 +21,9 @@ function App() {
    function deleteEmployee(id){
     setEmployee((previous)=> previous.filter((emp)=> emp.id !== id));
    }
+    function editEmployee(emp){
+      setSelectEmployee(emp);
+    }
 
   return (
     <>
@@ -27,9 +32,9 @@ function App() {
           <h1 className='text-5xl text-blue-500'> Class 8</h1>
            
            
-           <DisplayTable employees={employee} onDelete={deleteEmployee}/>
+           <DisplayTable  employees={employee} onDelete={deleteEmployee} onEdit={editEmployee}/>
           </div>
-          <Empform onAdd={addNewEmployee} />
+          <Empform onAdd={addNewEmployee}  empToEdit={selectEmployee}/>
     </>
   )
 }

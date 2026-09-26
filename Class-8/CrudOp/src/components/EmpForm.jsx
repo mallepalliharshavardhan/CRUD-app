@@ -1,10 +1,14 @@
-import {useState} from 'react'
-let Empform = ({onAdd})=>{
+import {useEffect, useState} from 'react'
+let Empform = ({onAdd,empToEdit})=>{
 let [data,setData]=useState({
     id:"",Name:"",age:"",salary:""
 });
 
-  
+  useEffect(()=>{
+    if(empToEdit){
+        setData({...empToEdit});
+    }
+  },[empToEdit])
 
 function handlesubmit(event){
     event.preventDefault();
@@ -18,7 +22,7 @@ function handlesubmit(event){
 
     return(
         <>
-           <div className='  bg-green-300'> 
+           <div className='bg-purple-300'> 
             <form onSubmit={handlesubmit}> 
              <h1> Employeeform</h1>
              <div> 
@@ -36,7 +40,7 @@ function handlesubmit(event){
                 <label> Salary</label>
             <input type="number" placeholder="enter salary" onChange={(e)=>{setData({...data,salary:e.target.value})}} value={data.salary}/>
              </div> 
-             <button type='submit'>Save</button>
+             <button className="bg-green-400 rounded-sm m-1" type='submit'>Save</button>
              </form>
               
            </div>
